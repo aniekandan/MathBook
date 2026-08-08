@@ -1,0 +1,11 @@
+{
+  "name": "MathBook",
+  "version": "3",
+  "subtitle": "Reactive Local Engine",
+  "rootPath": "C:\\Users\\Admin\\Documents\\Work\\my projects\\mathbook\\00003",
+  "ports": {
+    "vite": 5173,
+    "cpanel": 3001,
+    "mathdrive": 3002
+  }
+}

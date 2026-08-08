@@ -1,0 +1,25 @@
+{
+    "version": "4",
+    "mode": "local",
+    "paths": {
+        "root":    "C:/Users/Admin/Documents/Work/my projects/mathbook/00004",
+        "data":    "C:/Users/Admin/Documents/Work/my projects/mathbook/00004/data",
+        "trash":   "C:/Users/Admin/Documents/Work/my projects/mathbook/00004/data/.trash",
+        "os":      "C:/Users/Admin/Documents/Work/my projects/mathbook/00004/app",
+        "apps":    "C:/Users/Admin/Documents/Work/my projects/mathbook/00004/app/src/apps",
+        "server":  "C:/Users/Admin/Documents/Work/my projects/mathbook/00004/server",
+        "cpanel":  "C:/Users/Admin/Documents/Work/my projects/mathbook/00004/cpanel",
+        "apiUrl":  "/api"
+    },
+    "ports": {
+        "os":      5173,
+        "server":  3002,
+        "cpanel":  3001
+    },
+    "registry": {
+        "os":      { "name": "Meridian OS",      "icon": "Monitor",   "color": "#0f172a" },
+        "cpanel":  { "name": "Meridian CPanel",   "icon": "Terminal",  "color": "#f59e0b" },
+        "books":   { "name": "Meridian Books",    "icon": "BookOpen",  "color": "#8b5cf6" },
+        "drive":   { "name": "Meridian Drive",    "icon": "HardDrive", "color": "#06b6d4" }
+    }
+}

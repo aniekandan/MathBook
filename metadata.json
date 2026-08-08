@@ -1,0 +1,7 @@
+{
+  "name": "MathBook",
+  "description": "An elegant, interactive reactive math notebook environment with integrated drive and document editing.",
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

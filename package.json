@@ -1,0 +1,40 @@
+{
+  "name": "mathbook-root",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "npm run dev --prefix app",
+    "build": "npm run build --prefix app",
+    "start": "npm run start --prefix app",
+    "lint": "npm run lint --prefix app",
+    "electron-dev": "npm run build --prefix app && electron .",
+    "electron-build": "npm run build --prefix app && electron-builder"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "electron": "^43.3.0",
+    "electron-builder": "^26.15.3",
+    "tailwindcss": "^4.3.3"
+  },
+  "build": {
+    "appId": "com.mathbook.app",
+    "productName": "MathBook",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "app/dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
