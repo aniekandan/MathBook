@@ -1,0 +1,59 @@
+name: Build/Release MathBook
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update Version
+        run: npm version 1.0.${{ github.run_number }} --no-git-tag-version
+
+      - name: Build App
+        run: npm run electron-build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Release
+        run: |
+          $version = (Get-Content package.json | ConvertFrom-Json).version
+          $commitMsg = git log -1 --format=%B
+          $commitMsgStr = $commitMsg -join "`n"
+          Write-Output "Publishing release v$version with notes:"
+          Write-Output $commitMsgStr
+          $commitMsgStr | Out-File notes.txt -Encoding utf8
+          gh release create "v$version" --title $version -F notes.txt --target ${{ github.sha }}
+          Write-Output "Uploading files to release..."
+          Get-ChildItem -Path "release" -File | Where-Object { $_.Name -match "\.(exe|blockmap|yml)$" } | ForEach-Object { gh release upload "v$version" $_.FullName }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: MathBook-Windows-Build
+          path: release/*.exe
