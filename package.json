@@ -1,7 +1,7 @@
 {
   "name": "mathbook-root",
   "private": true,
-  "main": "electron/main.js",
+  "main": "app/electron/main.js",
   "scripts": {
     "dev": "npm run dev --prefix app",
     "build": "npm run build --prefix app",
@@ -23,10 +23,9 @@
       "output": "release"
     },
     "files": [
-      "app/dist/**/*",
+      "dist/**/*",
       "electron/**/*",
-      "package.json",
-      "app/package.json"
+      "package.json"
     ],
     "win": {
       "target": "nsis"
