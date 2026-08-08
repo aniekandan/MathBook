@@ -25,7 +25,8 @@
     "files": [
       "app/dist/**/*",
       "electron/**/*",
-      "package.json"
+      "package.json",
+      "app/package.json"
     ],
     "win": {
       "target": "nsis"
