@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "main": "electron/main.js",
   "description": "A beautiful, fully interactive, reactive notebook environment for mathematics, computation, and programming.",
   "author": "aniekandan",
   "repository": {
