@@ -17,7 +17,7 @@
     "tailwindcss": "^4.3.3"
   },
   "build": {
-    "appId": "com.mathbook.app",
+    "appId": "com.aniekandan.mathbook",
     "productName": "MathBook",
     "directories": {
       "output": "release"
@@ -35,6 +35,13 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "aniekandan",
+        "repo": "MathBook"
+      }
+    ]
   }
 }
